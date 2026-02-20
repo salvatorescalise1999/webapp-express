@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT;
 
+//import del router dei film
+const movieRouter = require('./routers/movieRouter')
 
 // import del middelware di gestione di rotta inesistente
 const notFound = require("./middlewares/notFound");
@@ -14,6 +16,9 @@ const errorsHandler = require("./middlewares/errorsHandler");
 app.get('/api', (req, res) => {
     res.send("<h1> Rotta di Home della nostra App di film </h1>")
 })
+
+// Rotte relative al router dei film
+app.get('/api/movies', movieRouter) ;
 
 // registriamo middelware di gestione rotta inesistente
 app.use(notFound);
