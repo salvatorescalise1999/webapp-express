@@ -18,7 +18,7 @@ app.get('/api', (req, res) => {
 })
 
 // Rotte relative al router dei film
-app.get('/api/movies', movieRouter) ;
+app.use('/api/movies', movieRouter) ;
 
 // registriamo middelware di gestione rotta inesistente
 app.use(notFound);
