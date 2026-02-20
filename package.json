@@ -1,0 +1,15 @@
+{
+  "name": "webapp-express",
+  "version": "1.0.0",
+  "description": "parte BE della nostra webapp completa",
+  "license": "ISC",
+  "author": "Salvatore Scalise",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
