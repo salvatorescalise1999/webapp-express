@@ -10,8 +10,7 @@ const notFound = require("./middlewares/notFound");
 const errorsHandler = require("./middlewares/errorsHandler");
 
 // Rotta home App
-// Usiamo "/api" per distinguere le rotte che restituiscono dati (API)
-// dalla home "/" che di solito mostra una pagina HTML
+// Usiamo "/api" per distinguere le rotte che restituiscono dati (API) dalla home "/" che di solito mostra una pagina HTML
 app.get('/api', (req, res) => {
     res.send("<h1> Rotta di Home della nostra App di film </h1>")
 })
