@@ -19,6 +19,12 @@ const notFound = require("./middlewares/notFound");
 // import del middelware di gestione errore interno 500
 const errorsHandler = require("./middlewares/errorsHandler");
 
+// Attivo cartella public per uso file statici
+app.use(express.static('public'));
+
+// Registro il body-parser per "application/json"
+app.use(express.json());
+
 // Rotta home App
 // Usiamo "/api" per distinguere le rotte che restituiscono dati (API) dalla home "/" che di solito mostra una pagina HTML
 app.get('/api', (req, res) => {
