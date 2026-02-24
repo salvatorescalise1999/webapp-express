@@ -11,7 +11,16 @@ function index(req, res) {
     // eseguiamo la query!
     connection.query(sql, (err, results) => {
         if (err) return res.status(500).json({ error: 'Database query failed' });
-        res.json(results);
+        
+        // creo una copia dei risultati con modifica path imgs
+        const movies = results.map(movie => {
+            return {
+                ...movie,
+                image: req.imagePath + movie.image
+            }
+        })
+
+        res.json(movies);
 
     });
 
@@ -40,7 +49,7 @@ function show(req, res) {
         // chiammata  id secondaria per recupero reviews del film
         connection.query(reviewsSql, [id], (err, reviewsResults) => {
             if (err) return res.status(500).json({ error: 'Database query failed' });
-            
+
             // salvaiamo le reviews in una costante
             const reviewsArray = reviewsResults;
 
