@@ -46,6 +46,9 @@ function show(req, res) {
         // Salviamo il risultato in una costante
         const movie = movieResults[0];
 
+        // aggiungo path img dal middleware
+        movie.image = req.imagePath + movie.image;
+
         // chiammata  id secondaria per recupero reviews del film
         connection.query(reviewsSql, [id], (err, reviewsResults) => {
             if (err) return res.status(500).json({ error: 'Database query failed' });
