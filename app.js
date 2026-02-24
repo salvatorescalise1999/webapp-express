@@ -19,6 +19,12 @@ const notFound = require("./middlewares/notFound");
 // import del middelware di gestione errore interno 500
 const errorsHandler = require("./middlewares/errorsHandler");
 
+// import del middelware di gestione di path imgs
+const imagePathMiddleware = require("./middlewares/imagePath");
+
+// attivazioone middelware di gestione di path imgs
+app.use(imagePathMiddleware);
+
 // Attivo cartella public per uso file statici
 app.use(express.static('public'));
 
